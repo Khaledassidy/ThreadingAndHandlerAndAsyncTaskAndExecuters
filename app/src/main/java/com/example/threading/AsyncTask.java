@@ -257,48 +257,54 @@ public class AsyncTask<S, I extends Number, V> extends AppCompatActivity {
             //MyTask myTask=new MyTask();
             //myTask.execute();
 
-            ExecutorService executors=Executors.newSingleThreadExecutor();
-//           ExecutorServices This is an interface in Java that represents a thread pool, which is a collection of worker threads that can be used to execute tasks concurrently
-//           Executors.newSingleThreadExecutor() This is a factory method that creates an ExecutorService with a single worker thread. This means that tasks submitted to this executor will be executed sequentially, one after another, on the same thread in workerthread
-            Handler handler=new Handler(Looper.getMainLooper());
-//          Looper.getMainLooper() This method returns the Looper associated with the main thread (also known as the UI thread). The main thread is responsible for handling UI updates,
-            //l eshya le bade 2a3mela abl l doinbackground le heye pre ba3mela houn
-            textView.setVisibility(View.VISIBLE);
-            progressBar.setVisibility(View.VISIBLE);
+//            ExecutorService executors=Executors.newSingleThreadExecutor();
+////           ExecutorServices This is an interface in Java that represents a thread pool, which is a collection of worker threads that can be used to execute tasks concurrently
+////           Executors.newSingleThreadExecutor() This is a factory method that creates an ExecutorService with a single worker thread. This means that tasks submitted to this executor will be executed sequentially, one after another, on the same thread in workerthread
+//            Handler handler=new Handler(Looper.getMainLooper());
+////          Looper.getMainLooper() This method returns the Looper associated with the main thread (also known as the UI thread). The main thread is responsible for handling UI updates,
+//            //l eshya le bade 2a3mela abl l doinbackground le heye pre ba3mela houn
+//            textView.setVisibility(View.VISIBLE);
+//            progressBar.setVisibility(View.VISIBLE);
+//
+//            //halal2 la 2a3mel l task le b2lab l doinbackground b2alb method l execute bta3mel task b2lab l worker thread
+//            //w bas 2a3mel handler.post() l eshya le b2lab btetnafaz bel main thread l2no Looper.getmainLooper btjeblak l mainthread fa kel she 7a ta3mel post mn 5elel hay l handler 7a yetnafaz bel mainthread
+//
+//            executors.execute(new Runnable() {
+//                @Override
+//                public void run() {
+//                    for (int i = 0; i < 10; i++) {
+//                        try {
+//                            Thread.sleep(1000);
+//                        } catch (InterruptedException e) {
+//                            throw new RuntimeException(e);
+//
+//                        }
+//
+//                        handler.post(new Runnable() {
+//                            @Override
+//                            public void run() {
+//                                progressBar.incrementProgressBy(10);
+//                                textView.setText(progressBar.getProgress()+"/100");
+//                            }
+//                        });
+//
+//                    }
+//                    handler.post(new Runnable() {
+//                        @Override
+//                        public void run() {
+//                            textView.setVisibility(View.GONE);
+//                            progressBar.setVisibility(View.GONE);
+//                        }
+//                    });
+//
+//                }
+//            });
 
-            //halal2 la 2a3mel l task le b2lab l doinbackground b2alb method l execute bta3mel task b2lab l worker thread
-            //w bas 2a3mel handler.post() l eshya le b2lab btetnafaz bel main thread l2no Looper.getmainLooper btjeblak l mainthread fa kel she 7a ta3mel post mn 5elel hay l handler 7a yetnafaz bel mainthread
 
-            executors.execute(new Runnable() {
-                @Override
-                public void run() {
-                    for (int i = 0; i < 10; i++) {
-                        try {
-                            Thread.sleep(1000);
-                        } catch (InterruptedException e) {
-                            throw new RuntimeException(e);
 
-                        }
+            //schdeulerepeating schdeulerepeating1=new schdeulerepeating();
+            //schdeulerepeating1.start();
 
-                        handler.post(new Runnable() {
-                            @Override
-                            public void run() {
-                                progressBar.incrementProgressBy(10);
-                                textView.setText(progressBar.getProgress()+"/100");
-                            }
-                        });
-
-                    }
-                    handler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            textView.setVisibility(View.GONE);
-                            progressBar.setVisibility(View.GONE);
-                        }
-                    });
-
-                }
-            });
 
 
 
